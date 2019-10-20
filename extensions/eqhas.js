@@ -2,8 +2,8 @@
 	========================================================
 		■ eqhas
 	--------------------------------------------------------
-		* query: 		Specify a has query. (example: "+ dt")
-		* guid¹: 		Specify element guid. (use guid)
+		* query: 		Specify a has query (example: "+ dt")
+		* guid¹: 		Specify element guid (use guid)
 		* prefix²: 	Query block prefix
 		* suffix²: 	Query block suffix
 		
@@ -41,7 +41,6 @@ function eqhas(query, guid, prefix = '', suffix = '') {
 		fullquery[i] = "[" + guid + "] " + fullquery[i];
 	}
 	fullquery			= fullquery.join(",");
-	console.log(fullquery);
 	var match			=	!!document.querySelector(fullquery);
 	
 	// Split has data into an array
