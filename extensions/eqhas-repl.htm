@@ -230,19 +230,9 @@
 			var charCode = (typeof e.which == 'number') ? e.which : e.keyCode;
 			if (charCode == 9) {
 				e.preventDefault()
-				document.activeElement.value += '\t'
-			}
-		}
-		let textareas = document.getElementsByTagName('textarea');
-		let count = textareas.length;
-		for (let i = 0; i < count; i++) {
-			textareas[i].onkeydown = function(e) {
-				if (e.keyCode == 9 || e.which == 9) {
-					e.preventDefault();
-					var s = this.selectionStart;
-					this.value = this.value.substring(0, this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
-					this.selectionEnd = s + 1;
-				}
+				var s = document.activeElement.selectionStart;
+				document.activeElement.value = document.activeElement.value.substring(0, document.activeElement.selectionStart) + "\t" + document.activeElement.value.substring(document.activeElement.selectionEnd);
+				document.activeElement.selectionEnd = s + 1;
 			}
 		}
 
