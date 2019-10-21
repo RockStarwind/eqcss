@@ -200,7 +200,7 @@
         preview = document.getElementById('preview'),
         share = document.getElementById('share')
     function repl(){
-      preview.srcdoc = '<!DOCTYPE html><style>'+css_text.value+'</style><html><body>'+html_text.value+'<script src=./EQCSS.js><\/script><script src=eqhas.js><\/script></body></html>'
+      preview.srcdoc = '<!DOCTYPE html><style>'+css_text.value+'</style><html><body>'+html_text.value+'<script src=../EQCSS.js><\/script><script src=eqhas.js><\/script></body></html>'
       share.href = '#css='+btoa(encodeURIComponent(escape(css_text.value)))+'html='+btoa(escape(encodeURIComponent(html_text.value)))
     }
     // Tab inserts 2 spaces
