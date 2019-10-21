@@ -1,170 +1,190 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset=utf-8>
-  <meta name=viewport content="width=device-width, initial-scale=1">
-  <meta name=viewport content="user-scalable=yes,initial-scale=1,width=device-width">
-  <meta name=description content="Try out EQCSS + eqhas function with this live REPL. EQCSS is a CSS extension that introduces Element Queries, Scoped Styles, and new CSS selectors like :parent and :prev and more to all browsers IE8 and up.">
-  <meta name=keywords content="EQCSS, element queries, element query, container queries, CSS extension, parent selector, meta selector, scoped CSS, scoped styles, CSS variables, reponsive web design, rwd, repl, live editor, editor, demo">
-  <title>EQCSS REPL</title>
-  <style>
-    * {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-kerning: auto;
-    }
-    ::-moz-selection {
-      color: #002b36;
-      background: #eee8d5;
-    }
-    ::selection {
-      color: #002b36;
-      background: #eee8d5;
-    }
-    html {
-      font-size: 10pt;
-      line-height: 1.4;
-      font-weight: 400;
-      font-family: sans-serif;
-      -webkit-text-size-adjust: 100%;
-    }
-    body {
-      margin: 0;
-    }
-    section,
-    iframe {
-      border: 0;
-      width: 50%;
-      height: 100vh;
-      float: left;
-      position: relative;
-    }
-    section h2 {
-      margin: 0;
-      padding: 0;
-      color: white;
-      opacity: .3;
-      position: absolute;
-      top: .25em;
-      right: .5em;
-      z-index: 500;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-      cursor: default;
-    }
-    h2:last-of-type {
-      top: calc(50% + .25em);
-    }
-    textarea {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 50%;
-      margin: 0;
-      float: left;
-      position: relative;
-      font-size: 14pt;
-      line-height: 1.4;
-      background: #002b36;
-      color: #839496;
-      padding: 1.5em;
-      border: none;
-      font-family: 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
-    }
-    #css {
-      border-top: 1px solid #586e75;
-    }
-    label {
-      position: fixed;
-      top: calc(50% - 30pt/2);
-      left: calc(50% - 30pt/2);
-      cursor: pointer;
-      z-index: 500;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-    }
-    label input {
-      display: none;
-    }
-    label span {
-      color: #268bd2;
-      font-size: 30pt;
-      width: 30pt;
-      line-height: .8;
-      display: block;
-      text-align: center;
-      text-shadow: black 0 0 1px;
-      transition: color .2s ease-in-out;
-    }
-    label span:hover,
-    label span:focus {
-      color: #2aa198;
-    }
-    #share {
-      background: rgba(255,255,255,.3);
-      color: black;
-      position: absolute;
-      bottom: .5em;
-      right: .5em;
-      padding: .5em;
-      line-height: 1;
-      border: 1px solid rgba(0,0,0,.5);
-      z-index: 500;
-      text-decoration: none;
-      opacity: .7;
-      border-radius: .2em;
-      transition: opacity .2s ease-in-out;
-    }
-    #share:hover,
-    #share:focus {
-      opacity: 1;
-    }
-    /* Horizontal Mode */
-    .horizontal section,
-    .horizontal iframe {
-      width: 100%;
-      height: 50vh;
-    }
-    .horizontal h2 {
-      top: .25em;
-      right: calc(50% + .5em);
-    }
-    .horizontal h2:last-of-type {
-      top: .25em;
-      right: .5em;
-    }
-    .horizontal textarea {
-      width: 50%;
-      height: 100%;
-    }
-    .horizontal #css {
-      border-top: 0;
-      border-left: 1px solid #586e75;
-    }
-  </style>
+	<meta charset=utf-8>
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name=viewport content="user-scalable=yes,initial-scale=1,width=device-width">
+	<title>EQCSS element_guid fork + eqhas REPL</title>
+	<style>
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			text-rendering: optimizeLegibility;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			font-kerning: auto;
+		}
+
+		::-moz-selection {
+			color: #002b36;
+			background: #eee8d5;
+		}
+
+		::selection {
+			color: #002b36;
+			background: #eee8d5;
+		}
+
+		html {
+			font-size: 10pt;
+			line-height: 1.4;
+			font-weight: 400;
+			font-family: sans-serif;
+			-webkit-text-size-adjust: 100%;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		section,
+		iframe {
+			border: 0;
+			width: 50%;
+			height: 100vh;
+			float: left;
+			position: relative;
+		}
+
+		section h2 {
+			margin: 0;
+			padding: 0;
+			color: white;
+			opacity: .3;
+			position: absolute;
+			top: .25em;
+			right: .5em;
+			z-index: 500;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+			cursor: default;
+		}
+
+		h2:last-of-type {
+			top: calc(50% + .25em);
+		}
+
+		textarea {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 100%;
+			height: 50%;
+			margin: 0;
+			float: left;
+			position: relative;
+			font-size: 14pt;
+			line-height: 1.4;
+			background: #002b36;
+			color: #839496;
+			padding: 1.5em;
+			border: none;
+			font-family: 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+		}
+
+		#css {
+			border-top: 1px solid #586e75;
+		}
+
+		label {
+			position: fixed;
+			top: calc(50% - 30pt/2);
+			left: calc(50% - 30pt/2);
+			cursor: pointer;
+			z-index: 500;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+		}
+
+		label input {
+			display: none;
+		}
+
+		label span {
+			color: #268bd2;
+			font-size: 30pt;
+			width: 30pt;
+			line-height: .8;
+			display: block;
+			text-align: center;
+			text-shadow: black 0 0 1px;
+			transition: color .2s ease-in-out;
+		}
+
+		label span:hover,
+		label span:focus {
+			color: #2aa198;
+		}
+
+		#share {
+			background: rgba(255, 255, 255, .3);
+			color: black;
+			position: absolute;
+			bottom: .5em;
+			right: .5em;
+			padding: .5em;
+			line-height: 1;
+			border: 1px solid rgba(0, 0, 0, .5);
+			z-index: 500;
+			text-decoration: none;
+			opacity: .7;
+			border-radius: .2em;
+			transition: opacity .2s ease-in-out;
+		}
+
+		#share:hover,
+		#share:focus {
+			opacity: 1;
+		}
+
+		/* Horizontal Mode */
+
+		.horizontal section,
+		.horizontal iframe {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.horizontal h2 {
+			top: .25em;
+			right: calc(50% + .5em);
+		}
+
+		.horizontal h2:last-of-type {
+			top: .25em;
+			right: .5em;
+		}
+
+		.horizontal textarea {
+			width: 50%;
+			height: 100%;
+		}
+
+		.horizontal #css {
+			border-top: 0;
+			border-left: 1px solid #586e75;
+		}
+	</style>
 </head>
+
 <body>
-  <label accesskey=v>
+	<label accesskey=v>
     <input type=checkbox name=orientation onchange=toggleView()>
     <span>⬌</span>
   </label>
-  <section id=editor>
-    <h2>HTML</h2>
-    <textarea id=html autocorrect=off autocapitalize=off autocomplete=off spellcheck=off><p>This is the EQCSS REPL.</p>
+	<section id=editor>
+		<h2>HTML</h2>
+		<textarea id=html autocorrect=off autocapitalize=off autocomplete=off spellcheck=off><p>This is the EQCSS REPL.</p>
 
 <p>Begin editing this code and watch the changes happen live in the preview pane…</p></textarea>
-    <h2>CSS</h2>
-    <textarea id=css autocorrect=off autocapitalize=off autocomplete=off spellcheck=off>@element html {
+		<h2>CSS</h2>
+		<textarea id=css autocorrect=off autocapitalize=off autocomplete=off spellcheck=off>@element html {
   :self {
     background: powderblue;
   }
@@ -174,49 +194,64 @@
     font-weight: bold;
   }
 }</textarea>
-  </section>
-  <iframe id=preview></iframe>
-  <a id=share href="#" target=_blank>Share</a>
-  <script>
-    onload = function(){
-      if (location.hash){
-        var hash = location.hash,
-            new_html = location.hash.split('html=')[1],
-            match = new RegExp('html='+new_html),
-            new_css = location.hash.split('css=')[1]
-        new_css = new_css.replace(match,'')
-        new_css = decodeURIComponent(unescape(atob(new_css)))
-        new_html = decodeURIComponent(unescape(atob(new_html)))
-        new_html = new_html.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&'),
-        html_text.value = new_html
-        css_text.value = new_css
-        repl()
-      }
-    }
-    document.addEventListener('DOMContentLoaded',repl)
-    editor.addEventListener('keyup',repl)
-    var html_text = document.getElementById('html'),
-        css_text = document.getElementById('css'),
-        preview = document.getElementById('preview'),
-        share = document.getElementById('share')
-    function repl(){
-      preview.srcdoc = '<!DOCTYPE html><style>'+css_text.value+'</style><html><body>'+html_text.value+'<script src=../EQCSS.js><\/script><script src=eqhas.js><\/script></body></html>'
-      share.href = '#css='+btoa(encodeURIComponent(escape(css_text.value)))+'html='+btoa(escape(encodeURIComponent(html_text.value)))
-    }
-    // Tab inserts 2 spaces
-    document.onkeydown = function(e){
-      e = e||window.event
-      var charCode = (typeof e.which=='number')?e.which:e.keyCode;
-      if (charCode==9){
-        e.preventDefault()
-        document.activeElement.value+='  '
-      }
-    }
-    function toggleView() {
-      var span = document.querySelector('label span')
-      document.body.className = document.body.className=='horizontal'?'':'horizontal'
-      span.innerHTML = span.innerHTML=='⬌'?'⬍':'⬌'
-    }
-  </script>
+	</section>
+	<iframe id=preview></iframe>
+	<a id=share href="#" target=_blank>Share</a>
+	<script>
+		onload = function() {
+			if (location.hash) {
+				var hash = location.hash,
+					new_html = location.hash.split('html=')[1],
+					match = new RegExp('html=' + new_html),
+					new_css = location.hash.split('css=')[1]
+				new_css = new_css.replace(match, '')
+				new_css = decodeURIComponent(unescape(atob(new_css)))
+				new_html = decodeURIComponent(unescape(atob(new_html)))
+				new_html = new_html.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'),
+					html_text.value = new_html
+				css_text.value = new_css
+				repl()
+			}
+		}
+		document.addEventListener('DOMContentLoaded', repl)
+		editor.addEventListener('keyup', repl)
+		var html_text = document.getElementById('html'),
+			css_text = document.getElementById('css'),
+			preview = document.getElementById('preview'),
+			share = document.getElementById('share')
+
+		function repl() {
+			preview.srcdoc = '<!DOCTYPE html><style>' + css_text.value + '</style><html><body>' + html_text.value + '<script src=../EQCSS.js><\/script><script src=eqhas.js><\/script></body></html>'
+			share.href = '#css=' + btoa(encodeURIComponent(escape(css_text.value))) + 'html=' + btoa(escape(encodeURIComponent(html_text.value)))
+		}
+		// Tab inserts 2 spaces
+		document.onkeydown = function(e) {
+			e = e || window.event
+			var charCode = (typeof e.which == 'number') ? e.which : e.keyCode;
+			if (charCode == 9) {
+				e.preventDefault()
+				document.activeElement.value += '\t'
+			}
+		}
+		let textareas = document.getElementsByTagName('textarea');
+		let count = textareas.length;
+		for (let i = 0; i < count; i++) {
+			textareas[i].onkeydown = function(e) {
+				if (e.keyCode == 9 || e.which == 9) {
+					e.preventDefault();
+					var s = this.selectionStart;
+					this.value = this.value.substring(0, this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+					this.selectionEnd = s + 1;
+				}
+			}
+		}
+
+		function toggleView() {
+			var span = document.querySelector('label span')
+			document.body.className = document.body.className == 'horizontal' ? '' : 'horizontal'
+			span.innerHTML = span.innerHTML == '⬌' ? '⬍' : '⬌'
+		}
+	</script>
 </body>
+
 </html>
