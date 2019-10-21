@@ -9,32 +9,11 @@
 	========================================================
 */
 function eqhas(query, guid) {
-	// A function that generates junk text can be used to split strings and join arrays by
-	function generateJunk() {
-		var party = "🎉🎈🎊🥳🎆🎇";
-		var garbage = Math.random()
-			.toString(36)
-			.replace(/[^a-zA-Z0-9]+/g, "")
-			.substr(0, 5);
-		party = party.substr(
-			parseInt(Math.floor(Math.random() * (party.length / 2)) * 2, 10),
-			2
-		);
-		return party + "eqhas_" + garbage + party;
-	}
-
 	// Get element of guid and eqhas data
 	var ary = [];
 	var element = document.querySelector("[" + guid + "]");
 	var has = element.getAttribute("_has") || "";
 	var query2 = "{" + query + "}";
-
-	// Get junk, maybe set junk
-	var junk = element.getAttribute("_has-junk") || "";
-	if (!junk.length > 0) {
-		junk = generateJunk();
-		element.setAttribute("_has-junk", junk);
-	}
 
 	// Split the query into an array using a regular expression by Orpheus (https://stackoverflow.com/a/39647734)
 	// Splitting the string this way prevents pseudo-class functions with complex selector lists or commas inside attribute values from further splitting the string
@@ -46,8 +25,8 @@ function eqhas(query, guid) {
 	fullquery = fullquery.join(",");
 	var match = !!document.querySelector(fullquery);
 
-	// Split has data into an array
-	ary = has.length > 0 ? has.split(junk) : [];
+	// Split has data into an array by commas not nested inside curly brackets
+	ary = (has.length > 0) ? has.split(/,(?![^\{]*\})/) : [];
 
 	// Is there a match?
 	if (match) {
@@ -64,5 +43,5 @@ function eqhas(query, guid) {
 		}
 	}
 
-	element.setAttribute("_has", ary.join(junk));
+	element.setAttribute("_has", ary.join(","));
 }
