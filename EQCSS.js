@@ -11,7 +11,7 @@ meta-selectors, eval(), and element-based units.
 - elementqueries.com
 
 Authors: Tommy Hodgins, Maxime Euzière
-Forked by: seto89
+Forked by: @RockStarwind
 
 License: MIT
 
