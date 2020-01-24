@@ -246,7 +246,7 @@ License: MIT
 		var test; // Query's condition test result
 		var computed_style; // Each targeted element's computed style
 		var parent_computed_style; // Each targeted element parent's computed style
-		var relationship = {element: {}}; // Gets referred to later when calling tryWithEval - seto89
+		var relationship = {element: {}}; // Gets referred to later when calling tryWithEval -- RockStarwind
 
 		// Loop on all element queries
 		for (i = 0; i < EQCSS.data.length; i++) {
@@ -262,7 +262,7 @@ License: MIT
 				// Add this guid as an attribute to the element
 				elements[j].setAttribute(element_guid, "");
 				
-				// Add guid, element_query_index, matched_element_index, and current element to relationship object -- seto89
+				// Add guid, element_query_index, matched_element_index, and current element to relationship object -- RockStarwind
 				relationship['element_guid'] = element_guid;
 				relationship['element_query_index'] = i;
 				relationship['matched_element_index'] = j;
@@ -295,7 +295,7 @@ License: MIT
 				// If there is a previous sibling, add attribute
 				if (prev_sibling) {
 					prev_sibling.setAttribute(element_guid_prev, "");
-					// Add previous sibling to relationship element object -- seto89
+					// Add previous sibling to relationship element object -- RockStarwind
 					relationship['element']['prev'] = prev_sibling;
 				}
 
@@ -315,7 +315,7 @@ License: MIT
 				// If there is a next sibling, add attribute
 				if (next_sibling) {
 					next_sibling.setAttribute(element_guid_next, "");
-					// Add next sibling to relationship element object -- seto89
+					// Add next sibling to relationship element object -- RockStarwind
 					relationship['element']['next'] = next_sibling;
 				}
 
@@ -1050,18 +1050,18 @@ License: MIT
      * Eval('') and $it
      */
 
-	EQCSS.tryWithEval = function(element, string, relationship) { // seto89
-		// started adding various variables to tryWithEval - seto89
+	EQCSS.tryWithEval = function(element, string, relationship) { // RockStarwind
+		// started adding various variables to tryWithEval -- RockStarwind
 		var element_guid = relationship.element_guid;
-		var	$prev = relationship.element.prev;
-		var	$next = relationship.element.next;
-		var	$parent = relationship.element.parent;
-		var	element_query_index = relationship.element_query_index;
-		var	matched_element_index = relationship.matched_element_index;
+		var $prev = relationship.element.prev;
+		var $next = relationship.element.next;
+		var $parent = relationship.element.parent;
+		var element_query_index = relationship.element_query_index;
+		var matched_element_index = relationship.matched_element_index;
 		
 		var guid = element_guid;
 		var $guid = element_guid;
-		// finished adding various variables to tryWithEval - seto89
+		// finished adding various variables to tryWithEval -- RockStarwind
 		
 		var $it = element;
 		var ret = "";
