@@ -275,7 +275,7 @@ License: MIT
 				// Add this guid as an attribute to the element's parent (except if element is the root element)
 				if (elements[j] != document.documentElement) {
 					elements[j].parentNode.setAttribute(element_guid_parent, "");
-					// Add parent element to relationship element object -- seto89
+					// Add parent element to relationship element object -- RockStarwind
 					relationship['element']['parent'] = elements[j].parentNode;
 				}
 
@@ -949,7 +949,7 @@ License: MIT
 						match
 					) {
 						return EQCSS.tryWithEval(elements[j], match, relationship);
-						// added relationship object to the call - seto89
+						// added relationship object to the call -- RockStarwind
 					});
 
 					// Replace ':self', '$this' or 'eq_this' with '[element_guid]'
