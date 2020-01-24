@@ -17,7 +17,7 @@ function eqhas(query, guid) {
 
 	// Split the query into an array using a regular expression by Orpheus (https://stackoverflow.com/a/39647734)
 	// Splitting the string this way prevents pseudo-class functions with complex selector lists or commas inside attribute values from further splitting the string
-	var fullquery = query.split(/,(?![^(]*\))(?![^[]*\]) /);
+	var fullquery = query.split(/,(?![^(]*\))(?![^[]*\])\s*/);
 	for (var i = 0; i < fullquery.length; i++) {
 		// Turn each array element into `<guid> <query>`
 		fullquery[i] = "[" + guid + "] " + fullquery[i];
